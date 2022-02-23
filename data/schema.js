@@ -9,7 +9,7 @@ const typeDefs = `
     language: String
     gender: Gender
     age: Int
-    emails: String
+    email: String
     contacts: [ContactInput]
   }
 
@@ -20,7 +20,7 @@ const typeDefs = `
     language: String
     gender: Gender
     age: Int
-    emails: String
+    email: String
     contacts: [Contact]
   }
 
@@ -40,12 +40,23 @@ const typeDefs = `
     OTHER
   }
 
+  type Alien {
+    id: ID
+    firstName: String
+    lastName: String
+    planet: String
+  }
+
   type Query {
-    getFriend(id: ID): Friend
+    getFriendById(id: ID!): Friend
+    getAllFriends: [Friend]
+    getAllAliens: [Alien]
   }
 
   type Mutation {
     createFriend(input: FriendInput): Friend
+    updateFriend(input: FriendInput): Friend
+    deleteFriend(id: ID!): String
   }
 `;
 
