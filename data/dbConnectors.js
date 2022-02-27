@@ -3,11 +3,8 @@ import Sequelize from "sequelize";
 import _ from "lodash";
 import casual from "casual";
 
-const dbUsername = process.env.DB_USER_NAME;
-const dbPassword = process.env.DB_PASSWORD;
-const dbHost = process.env.DB_HOST;
-const dbName = process.env.DB_NAME;
-const dbUrl = `mongodb+srv://${dbUsername}:${dbPassword}@${dbHost}/${dbName}?retryWrites=true&w=majority`;
+const { DB_USER_NAME, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const dbUrl = `mongodb+srv://${DB_USER_NAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`;
 
 // Mongo connection
 mongoose.Promise = global.Promise;
